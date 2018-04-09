@@ -3,26 +3,35 @@ require_once "autoload.php";
 $e = new \Models\Endereco();
 
 if(isset($_POST['cadastrar'])){
-        $logradouro = (isset($_POST['logradouro'])) && !empty($_POST['logradouro']) ? $_POST['logradouro'] : header("location: index.php");
-        $numero = (isset($_POST['numero']) && !empty($_POST['numero'])) ? $_POST['numero'] : header("location: index.php");
-        $bairro = (isset($_POST['bairro']) && !empty($_POST['bairro'])) ? $_POST['bairro'] : header("location: index.php");
-        $municipio = (isset($_POST['municipio']) && !empty($_POST['municipio'])) ? $_POST['municipio'] : header("location: index.php");
-        $uf = (isset($_POST['uf']) && !empty($_POST['uf'])) ? $_POST['uf'] : header("location: index.php");
-        $pais = (isset($_POST['pais']) && !empty($_POST['pais'])) ? $_POST['pais'] : header("location: index.php");
-        $cep = (isset($_POST['cep']) && !empty($_POST['cep'])) ? $_POST['cep'] : header("location: index.php");
-        $complemento = (isset($_POST['complemento']) && !empty($_POST['complemento'])) ? $_POST['complemento'] : header("location: index.php");
-        $referencia = (isset($_POST['referencia']) && !empty($_POST['referencia'])) ? $_POST['referencia'] : header("location: index.php");
+        $logradouro = $_POST['logradouro'];
+        $numero = $_POST['numero'];
+        $bairro = $_POST['bairro'];
+        $municipio = $_POST['municipio'];
+        $uf = $_POST['uf'];
+        $pais = $_POST['pais'];
+        $cep = $_POST['cep'];
+        $complemento = $_POST['complemento'];
+        $referencia = $_POST['referencia'];
 
-        $e->setLogradouro($logradouro);
-        $e->setNumero($numero);
-        $e->setBairro($bairro);
-        $e->setMunicipio($municipio);
-        $e->setUf($uf);
-        $e->setPais($pais);
-        $e->setCep($cep);
-        $e->setComplemento($complemento);
-        $e->setReferencia($referencia);
-        $e->insert();
+        if(isset($logradouro) && isset($numero) && isset($bairro) && isset($municipio) && isset($uf) && isset($pais) && isset($cep) && isset($complemento) && isset($referencia)
+        && !empty($logradouro) && !empty($numero) && !empty($bairro) && !empty($municipio) && !empty($uf) && !empty($pais) && !empty($cep) && !empty($complemento) && !empty($referencia)){
+            $e->setLogradouro($logradouro);
+            $e->setNumero($numero);
+            $e->setBairro($bairro);
+            $e->setMunicipio($municipio);
+            $e->setUf($uf);
+            $e->setPais($pais);
+            $e->setCep($cep);
+            $e->setComplemento($complemento);
+            $e->setReferencia($referencia);
+            $e->insert();
+
+            $sucesso = '<div class="alert alert-success" role="alert">Usuário cadastrado com sucesso!</div>';
+
+            header("location: index.php");
+        }else{
+            $errocad = '<div class="alert alert-danger" role="alert">Desculpe não conseguimos cadastrar o endereço, verifique que existe campos vázios.</div>';
+        }
 }
 
 
@@ -49,6 +58,12 @@ if(isset($_POST['editar'])){
         $e->setComplemento($complemento);
         $e->setReferencia($referencia);
         $e->update($_GET['id']);
+
+        $sucessoedit = '<div class="alert alert-success" role="alert">Usuário alterado com sucesso!</div>';
+
+        header("location: index.php");
+    }else{
+        $erroedit = '<div class="alert alert-danger" role="alert">Desculpe não conseguimos editar seu endereço, verifique se existe campos vázios.</div>';
     }
 }
 
@@ -74,8 +89,7 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
+        <div class="col-12">
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
@@ -106,155 +120,145 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
                     <td><?= $value->cep ?></td>
                     <td><?= $value->complemento ?></td>
                     <td><?= $value->referencia ?></td>
-                    <td><a href="?a=e&id=<?= $value->id ?>" data-toggle="modal" data-target="#modalEditar"><i class="material-icons">mode_edit</i></a></td>
+                    <td><a href="?a=e&id=<?= $value->id ?>"><i class="material-icons">mode_edit</i></a></td>
                     <td><a href="?a=d&id=<?= $value->id ?>"><i class="material-icons" style="color:red">delete</i></a></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Novo endereço</button>
-
-
+        </div>
+    </div>
+</div>
             <?php
             if(isset($_GET['a']) && $_GET['a'] == 'e'):
                 $resultado = $e->find($_GET['id']);
             ?>
-                <!-- Modal editar -->
-                <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar endereço</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+                 <!-- Modal editar -->
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
                             <form method="post">
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-8">
                                         <label for="inputEmail4">Logradouro</label>
-                                        <input type="text" value="<?= $resultado->logradouro ?>" name="logradouro" class="form-control" id="inputEmail4" placeholder="Rua exemplo">
+                                        <input type="text" value="<?= $resultado->logradouro ?>" name="logradouro" class="form-control" placeholder="Rua exemplo">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-2">
                                         <label for="inputPassword4">Número</label>
-                                        <input type="number" value="<?= $resultado->numero ?>" name="numero" class="form-control" id="inputPassword4" placeholder="0101">
+                                        <input type="number" value="<?= $resultado->numero ?>" name="numero" class="form-control"  placeholder="0101">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Bairro</label>
+                                        <input type="text" value="<?= $resultado->bairro ?>" name="bairro" class="form-control" placeholder="Bairro">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputAddress">Bairro</label>
-                                    <input type="text" value="<?= $resultado->bairro ?>" name="bairro" class="form-control" id="inputAddress" placeholder="Bairro">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Município</label>
-                                    <input type="text" value="<?= $resultado->municipio ?>" name="municipio" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">UF</label>
-                                    <input type="text" value="<?= $resultado->uf ?>" name="uf" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Pais</label>
-                                    <input type="text" value="<?= $resultado->pais ?>" name="pais" class="form-control" id="inputAddress2" placeholder="Ex: Brasil">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Cep</label>
-                                    <input type="text" value="<?= $resultado->cep ?>" name="cep" class="form-control" id="inputAddress2" placeholder="Ex: 50721230">
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <label for="inputAddress2">Município</label>
+                                        <input type="text" value="<?= $resultado->municipio ?>" name="municipio" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="inputAddress2">UF</label>
+                                        <input type="text" value="<?= $resultado->uf ?>" name="uf" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputAddress2">Pais</label>
+                                        <input type="text" value="<?= $resultado->pais ?>" name="pais" class="form-control" id="inputAddress2" placeholder="Ex: Brasil">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputAddress2">Cep</label>
+                                        <input type="text" value="<?= $resultado->cep ?>" name="cep" class="form-control" id="inputAddress2" placeholder="Ex: 50721230">
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="inputAddress2">Complemento</label>
-                                    <input type="text" value="<?= $resultado->complemento ?>" name="complemento" class="form-control" id="inputAddress2" placeholder="Ex: Casa, Apt">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress2">Complemento</label>
+                                        <input type="text" value="<?= $resultado->complemento ?>" name="complemento" class="form-control" id="inputAddress2" placeholder="Ex: Casa, Apt">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress2">Referência</label>
+                                        <input type="text" value="<?= $resultado->referencia ?>" name="referencia" class="form-control" id="inputAddress2" placeholder="Ex: Perto da Pastelaria">
+                                    </div>
+                                </div>
+                                <button type="submit"  name="editar" class="btn btn-primary">Atualizar</button>
+                                <a href="index.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
+                            </form>
+                         </div>
+                    </div>
+                </div>
+            <?php else:  ?>
+                <!-- Modal cadastrar -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <?php
+                            if(isset($errocad)){
+                                echo $errocad;
+                            }else if(isset($sucesso)){
+                                echo $sucesso;
+                            }
+                            
+                            if(isset($erroedit)){
+                                echo $erroedit;
+                            }else if(isset($sucessoedit)){
+                                echo $sucessoedit;
+                            }
+                            ?>
+                            <form method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="inputEmail4">Logradouro</label>
+                                        <input type="text" name="logradouro" class="form-control" placeholder="Rua exemplo">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Número</label>
+                                        <input type="text" name="numero" class="form-control"  placeholder="0101">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPassword4">Bairro</label>
+                                        <input type="text" name="bairro" class="form-control" placeholder="Bairro">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="inputAddress2">Município</label>
+                                        <input type="text" name="municipio" class="form-control" placeholder="Ex: São Paulo">
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="inputAddress2">UF</label>
+                                        <input type="text" aria-valuemax="2" name="uf" class="form-control"  placeholder="Ex: SP">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="inputAddress2">Pais</label>
+                                        <input type="text" name="pais" class="form-control"  placeholder="Ex: Brasil">
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label for="inputAddress2">Cep</label>
+                                        <input type="text" name="cep" class="form-control"  placeholder="Ex: 50721230">
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="inputAddress2">Referência</label>
-                                    <input type="text" value="<?= $resultado->referencia ?>" name="referencia" class="form-control" id="inputAddress2" placeholder="Ex: Perto da Pastelaria">
-                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress2">Complemento</label>
+                                        <input type="text" name="complemento" class="form-control" placeholder="Ex: Casa, Apt">
+                                    </div>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                    <button type="submit"  name="editar" class="btn btn-primary">Cadastrar</button>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputAddress2">Referência</label>
+                                        <input type="text" name="referencia" class="form-control" placeholder="Ex: Perto da Pastelaria">
+                                    </div>
                                 </div>
+                                <button type="submit"  name="cadastrar" class="btn btn-success">Cadastrar</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <?php endif;  ?>
-                <!-- Modal cadastrar -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Adicionar endereço</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form method="post" name="cadastrar">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputEmail4">Logradouro</label>
-                                            <input type="text" name="logradouro" class="form-control" id="inputEmail4" placeholder="Rua exemplo">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputPassword4">Número</label>
-                                            <input type="text" name="numero" class="form-control" id="inputPassword4" placeholder="0101">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress">Bairro</label>
-                                        <input type="text" name="bairro" class="form-control" id="inputAddress" placeholder="Bairro">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Município</label>
-                                        <input type="text" name="municipio" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2">UF</label>
-                                        <input type="text" name="uf" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Pais</label>
-                                        <input type="text" name="pais" class="form-control" id="inputAddress2" placeholder="Ex: Brasil">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Cep</label>
-                                        <input type="text" name="cep" class="form-control" id="inputAddress2" placeholder="Ex: 50721230">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Complemento</label>
-                                        <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Ex: Casa, Apt">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="inputAddress2">Referência</label>
-                                        <input type="text" name="referencia" class="form-control" id="inputAddress2" placeholder="Ex: Perto da Pastelaria">
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                        <button type="submit" name="cadastrar" class="btn btn-primary">Cadastrar</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-        </div>
-        <div class="col-2"></div>
-    </div>
-</div>
-</pre>
-
-
+        <?php endif; ?>
 
 
 <!-- JavaScript (Opcional) -->
