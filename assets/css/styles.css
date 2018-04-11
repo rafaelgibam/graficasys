@@ -1,0 +1,19 @@
+.ion-android-person, .ion-ios-location, .ion-person-stalker, .ion-android-bus, .ion-cube, .ion-clipboard {
+    font-size: 100px;
+    color: #0c5460;
+}
+
+.btn-ver{
+    background-color: #0c5460;
+    border-color: #0c5460;
+}
+
+.btn-ver:hover {
+    background-color: #0c333f;
+    border-color: #0c333f ;
+}
+
+.card-person {
+    background-color: #f8f9fa;
+    border-width: 0.2em;
+}

@@ -9,7 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link href="assets/icons/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <title>HomePage</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>GraficaSys</title>
 
 </head>
 <body>

@@ -1,3 +1,12 @@
+<footer class="text-muted bg-dark">
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</footer>
 
 <!-- JavaScript (Opcional) -->
 <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->

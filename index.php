@@ -1,60 +1,73 @@
 <?php require_once "Layouts/head.php"; ?>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">GraficaSys</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <span class="text-center ion-android-person-add"></span>
+<?php require_once "Layouts/menu.php"; ?>
+<div class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4" align="center">
+            <div class="card card-person" style="width: 18rem;">
+                <i class="ion-android-person"></i>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Clientes</h5>
+                    <p class="card-text">Lista de clientes cadastrados no sistema.</p>
+                    <a href="#" class="btn btn-primary btn-ver">Ver clientes</a>
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="col-md-4" align="center">
+            <div class="card card-person" style="width: 18rem;">
+                <i class="ion-ios-location"></i>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Endereços</h5>
+                    <p class="card-text">Lista de endereços cadastrados no sistema.</p>
+                    <a href="endereco.php" class="btn btn-primary btn-ver">Ver endereços</a>
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="col-md-4" align="center">
+            <div class="card card-person" style="width: 18rem;">
+                <i class="ion-person-stalker"></i>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">Funcionários</h5>
+                    <p class="card-text">Lista de funcionarios cadastrados no sistema.</p>
+                    <a href="#" class="btn btn-primary btn-ver">Ver funcionários</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- Segunda linha --->
+    <div class="row text-center mt-5">
+        <div class="col-md-4" align="center">
+            <div class="card card-person" style="width: 18rem;">
+                <i class="ion-android-bus"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Fornecedores</h5>
+                    <p class="card-text">Lista de fornecedores cadastrados no sistema.</p>
+                    <a href="#" class="btn btn-primary btn-ver">Ver clientes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" align="center">
+            <div class="card card-person" style="width: 18rem;">
+                <i class="ion-cube"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Estoque</h5>
+                    <p class="card-text">Lista de produtos cadastrados no sistema.</p>
+                    <a href="#" class="btn btn-primary btn-ver">Ver clientes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" align="center">
+            <div class="card card-person" style="width: 18rem;">
+                <i class="ion-clipboard"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Pedidos</h5>
+                    <p class="card-text">Lista de pedidos cadastrados no sistema.</p>
+                    <a href="#" class="btn btn-primary btn-ver">Ver clientes</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <?php require_once "Layouts/footer.php"; ?>
 

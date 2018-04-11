@@ -73,21 +73,10 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
 }
 
 ?>
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <!-- Meta tags Obrigatórias -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php require_once "Layouts/head.php"?>
+<?php require_once "Layouts/menu.php"; ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>HomePage</title>
-
-</head>
-<body>
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-12">
             <table class="table">
@@ -120,8 +109,8 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
                     <td><?= $value->cep ?></td>
                     <td><?= $value->complemento ?></td>
                     <td><?= $value->referencia ?></td>
-                    <td><a href="?a=e&id=<?= $value->id ?>"><i class="material-icons">mode_edit</i></a></td>
-                    <td><a href="?a=d&id=<?= $value->id ?>"><i class="material-icons" style="color:red">delete</i></a></td>
+                    <td><a href="?a=e&id=<?= $value->id ?>"><i class="ion-compose"  style=" font-size: 25px"></i></a></td>
+                    <td><a href="?a=d&id=<?= $value->id ?>"><i class="ion-trash-a" style="color:red; font-size: 25px"></i></a></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -260,11 +249,4 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
 
         <?php endif; ?>
 
-
-<!-- JavaScript (Opcional) -->
-<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php require_once "Layouts/footer.php"?>
