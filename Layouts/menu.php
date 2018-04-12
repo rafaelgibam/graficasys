@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-person">
     <div class="container">
         <a class="navbar-brand" href="?">GraficaSys</a>

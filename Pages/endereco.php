@@ -1,5 +1,5 @@
 <?php
-
+try{
 $e = new \Models\Endereco();
 
 if(isset($_POST['cadastrar'])){
@@ -30,7 +30,7 @@ if(isset($_POST['cadastrar'])){
 
             header("location: endereco.php");
         }else{
-            $errocad = '<div class="alert alert-danger" role="alert">Desculpe não conseguimos cadastrar o endereço, verifique que existe campos vázios.</div>';
+            $errocad = '<div class="alert alert-danger" role="alert">Desculpe não conseguimos cadastrar o endereço, verifique os campos preenchido!</div>';
         }
 }
 
@@ -63,7 +63,7 @@ if(isset($_POST['editar'])){
 
         header("location: endereco.php");
     }else{
-        $erroedit = '<div class="alert alert-danger" role="alert">Desculpe não conseguimos editar seu endereço, verifique se existe campos vázios.</div>';
+        $erroedit = '<div class="alert alert-danger" role="alert">Desculpe não conseguimos editar seu endereço, verifique os campos preenchido!</div>';
     }
 }
 
@@ -109,8 +109,9 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
                     <td><?= $value->cep ?></td>
                     <td><?= $value->complemento ?></td>
                     <td><?= $value->referencia ?></td>
-                    <td><a href="?a=e&id=<?= $value->id ?>"><i class="ion-compose"  style=" font-size: 25px"></i></a></td>
-                    <td><a href="?a=d&id=<?= $value->id ?>"><i class="ion-trash-a" style="color:red; font-size: 25px"></i></a></td>
+                    <td><a href="?endereco&a=e&id=<?= $value->id ?>"><i class="ion-compose"  style=" font-size: 25px"></i></a></td>
+                    <td><a href="?endereco&a=d&id=<?= $value->id ?>"><i class="ion-trash-a" style="color:red; font-size: 25px"></i></a></td>
+
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -118,6 +119,7 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
         </div>
     </div>
 </div>
+<hr>
             <?php
             if(isset($_GET['a']) && $_GET['a'] == 'e'):
                 $resultado = $e->find($_GET['id']);
@@ -127,53 +129,53 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
                     <div class="row">
 
                         <div class="col-12">
-                            <form method="post">
+                            <form method="post" action="?endereco">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
-                                        <label for="inputEmail4">Logradouro</label>
-                                        <input type="text" value="<?= $resultado->logradouro ?>" name="logradouro" class="form-control" placeholder="Rua exemplo" size="255">
+                                        <label>Logradouro</label>
+                                        <input type="text" value="<?= $resultado->logradouro ?>" name="logradouro" class="form-control" placeholder="Ex: Rua exemplo" maxlength="250">
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="inputPassword4">Número</label>
-                                        <input type="number" value="<?= $resultado->numero ?>" name="numero" class="form-control"  placeholder="0101" size="10">
+                                        <label>Número</label>
+                                        <input type="number" value="<?= $resultado->numero ?>" name="numero" class="form-control"  placeholder="Ex: 101" maxlength="8">
                                     </div>
                                     <div class="form-group col-md-2">
-                                        <label for="inputPassword4">Bairro</label>
-                                        <input type="text" value="<?= $resultado->bairro ?>" name="bairro" class="form-control" placeholder="Bairro" size="45">
+                                        <label>Bairro</label>
+                                        <input type="text" value="<?= $resultado->bairro ?>" name="bairro" class="form-control" placeholder="Ex: Cordeiro" maxlength="45">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
-                                        <label for="inputAddress2">Município</label>
-                                        <input type="text" value="<?= $resultado->municipio ?>" name="municipio" class="form-control" placeholder="Ex: São Paulo" size="45">
+                                        <label>Município</label>
+                                        <input type="text" value="<?= $resultado->municipio ?>" name="municipio" class="form-control" placeholder="Ex: São Paulo" maxlength="25">
                                     </div>
                                     <div class="form-group col-md-1">
-                                        <label for="inputAddress2">UF</label>
+                                        <label>UF</label>
                                         <input type="text" value="<?= $resultado->uf ?>" name="uf" class="form-control"  placeholder="Ex: SP" maxlength="2" minlength="2">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="inputAddress2">Pais</label>
-                                        <input type="text" value="<?= $resultado->pais ?>" name="pais" class="form-control" placeholder="Ex: Brasil" size="20">
+                                        <label>Pais</label>
+                                        <input type="text" value="<?= $resultado->pais ?>" name="pais" class="form-control" placeholder="Ex: Brasil" maxlength="45">
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="inputAddress2">Cep</label>
-                                        <input type="text" value="<?= $resultado->cep ?>" name="cep" class="form-control" placeholder="Ex: 50721230" size="8">
+                                        <label>Cep</label>
+                                        <input type="text" value="<?= $resultado->cep ?>" name="cep" class="form-control" placeholder="Ex: 50721230" maxlength="8">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputAddress2">Complemento</label>
-                                        <input type="text" value="<?= $resultado->complemento ?>" name="complemento" class="form-control"  placeholder="Ex: Casa, Apt" size="45">
+                                        <label>Complemento</label>
+                                        <input type="text" value="<?= $resultado->complemento ?>" name="complemento" class="form-control"  placeholder="Ex: Casa, Apt" maxlength="45" ">
                                     </div>
 
                                     <div class="form-group col-md-6">
-                                        <label for="inputAddress2">Referência</label>
-                                        <input type="text" value="<?= $resultado->referencia ?>" name="referencia" class="form-control" placeholder="Ex: Perto da Pastelaria" size="255">
+                                        <label>Referência</label>
+                                        <input type="text" value="<?= $resultado->referencia ?>" name="referencia" class="form-control" placeholder="Ex: Perto da Pastelaria" maxlength="250">
                                     </div>
                                 </div>
                                 <button type="submit"  name="editar" class="btn btn-primary">Atualizar</button>
-                                <a href="endereco.php"><button type="button" class="btn btn-danger">Cancelar</button></a>
+                                <a href="?endereco"><button type="button" class="btn btn-danger">Cancelar</button></a>
                             </form>
                          </div>
                     </div>
@@ -196,7 +198,7 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
                                 echo $sucessoedit;
                             }
                             ?>
-                            <form method="post">
+                            <form method="post" action="?endereco">
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
                                         <label for="inputEmail4">Logradouro</label>
@@ -249,3 +251,9 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
 
         <?php endif; ?>
 
+<?php }catch(PDOException $e) {
+    echo '
+    <script> alert("Você não pode apagar porque existem tabelas relacionadas a esse endereço!");
+        window.location.href="?endereco";
+    </script>';
+}?>
