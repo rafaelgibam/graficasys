@@ -1,6 +1,6 @@
-<footer class="text-muted bg-dark">
-    <div class="container">
-        <div class="row">
+<footer class="text-muted mt-5">
+    <div class="container-fluid">
+        <div class="row row-person">
 
         </div>
         <!--end of row-->

@@ -8,6 +8,10 @@
     border-color: #0c5460;
 }
 
+.bg-person{
+    background-color: #0c5460;
+}
+
 .btn-ver:hover {
     background-color: #0c333f;
     border-color: #0c333f ;
@@ -16,4 +20,9 @@
 .card-person {
     background-color: #f8f9fa;
     border-width: 0.2em;
+}
+
+.row-person{
+    height: 90px;
+    background-color: #0c5460;
 }

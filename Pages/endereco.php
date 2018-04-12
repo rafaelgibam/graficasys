@@ -1,5 +1,5 @@
 <?php
-require_once "autoload.php";
+
 $e = new \Models\Endereco();
 
 if(isset($_POST['cadastrar'])){
@@ -73,10 +73,10 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
 }
 
 ?>
-<?php require_once "Layouts/head.php"?>
-<?php require_once "Layouts/menu.php"; ?>
 
-<div class="container mt-5">
+
+
+<div class="container-fluid mt-3">
     <div class="row">
         <div class="col-12">
             <table class="table">
@@ -131,45 +131,45 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
                                         <label for="inputEmail4">Logradouro</label>
-                                        <input type="text" value="<?= $resultado->logradouro ?>" name="logradouro" class="form-control" placeholder="Rua exemplo">
+                                        <input type="text" value="<?= $resultado->logradouro ?>" name="logradouro" class="form-control" placeholder="Rua exemplo" size="255">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputPassword4">Número</label>
-                                        <input type="number" value="<?= $resultado->numero ?>" name="numero" class="form-control"  placeholder="0101">
+                                        <input type="number" value="<?= $resultado->numero ?>" name="numero" class="form-control"  placeholder="0101" size="10">
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="inputPassword4">Bairro</label>
-                                        <input type="text" value="<?= $resultado->bairro ?>" name="bairro" class="form-control" placeholder="Bairro">
+                                        <input type="text" value="<?= $resultado->bairro ?>" name="bairro" class="form-control" placeholder="Bairro" size="45">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-5">
                                         <label for="inputAddress2">Município</label>
-                                        <input type="text" value="<?= $resultado->municipio ?>" name="municipio" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
+                                        <input type="text" value="<?= $resultado->municipio ?>" name="municipio" class="form-control" placeholder="Ex: São Paulo" size="45">
                                     </div>
                                     <div class="form-group col-md-1">
                                         <label for="inputAddress2">UF</label>
-                                        <input type="text" value="<?= $resultado->uf ?>" name="uf" class="form-control" id="inputAddress2" placeholder="Ex: São Paulo">
+                                        <input type="text" value="<?= $resultado->uf ?>" name="uf" class="form-control"  placeholder="Ex: SP" maxlength="2" minlength="2">
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputAddress2">Pais</label>
-                                        <input type="text" value="<?= $resultado->pais ?>" name="pais" class="form-control" id="inputAddress2" placeholder="Ex: Brasil">
+                                        <input type="text" value="<?= $resultado->pais ?>" name="pais" class="form-control" placeholder="Ex: Brasil" size="20">
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="inputAddress2">Cep</label>
-                                        <input type="text" value="<?= $resultado->cep ?>" name="cep" class="form-control" id="inputAddress2" placeholder="Ex: 50721230">
+                                        <input type="text" value="<?= $resultado->cep ?>" name="cep" class="form-control" placeholder="Ex: 50721230" size="8">
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputAddress2">Complemento</label>
-                                        <input type="text" value="<?= $resultado->complemento ?>" name="complemento" class="form-control" id="inputAddress2" placeholder="Ex: Casa, Apt">
+                                        <input type="text" value="<?= $resultado->complemento ?>" name="complemento" class="form-control"  placeholder="Ex: Casa, Apt" size="45">
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="inputAddress2">Referência</label>
-                                        <input type="text" value="<?= $resultado->referencia ?>" name="referencia" class="form-control" id="inputAddress2" placeholder="Ex: Perto da Pastelaria">
+                                        <input type="text" value="<?= $resultado->referencia ?>" name="referencia" class="form-control" placeholder="Ex: Perto da Pastelaria" size="255">
                                     </div>
                                 </div>
                                 <button type="submit"  name="editar" class="btn btn-primary">Atualizar</button>
@@ -249,4 +249,3 @@ if(isset($_GET['a']) && $_GET['a'] == 'd'){
 
         <?php endif; ?>
 
-<?php require_once "Layouts/footer.php"?>
