@@ -22,7 +22,12 @@
     border-width: 0.2em;
 }
 
-.row-person{
-    height: 90px;
+.row-person-footer{
+    height: 154px;
+    bottom: 0;
     background-color: #0c5460;
+}
+
+.table td {
+   padding: 11px 11px 0px 5px !important;
 }

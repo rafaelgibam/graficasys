@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Endereco extends Model implements Crud
+class Endereco extends Model
 {
     private $id;
     private $logradouro;

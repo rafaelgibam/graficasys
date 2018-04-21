@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Clientes</h5>
                     <p class="card-text">Lista de clientes cadastrados no sistema.</p>
-                    <a href="?cliente" class="btn btn-primary btn-ver">Ver clientes</a>
+                    <a href="/cliente" class="btn btn-primary btn-ver">Ver clientes</a>
                 </div>
             </div>
         </div>
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Endereços</h5>
                     <p class="card-text">Lista de endereços cadastrados no sistema.</p>
-                    <a href="?endereco" class="btn btn-primary btn-ver">Ver endereços</a>
+                    <a href="/endereco" class="btn btn-primary btn-ver">Ver endereços</a>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Funcionários</h5>
                     <p class="card-text">Lista de funcionarios cadastrados no sistema.</p>
-                    <a href="?funcionario" class="btn btn-primary btn-ver">Ver funcionários</a>
+                    <a href="/funcionario" class="btn btn-primary btn-ver">Ver funcionários</a>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Fornecedores</h5>
                     <p class="card-text">Lista de fornecedores cadastrados no sistema.</p>
-                    <a href="?fornecedore" class="btn btn-primary btn-ver">Ver fornecedores</a>
+                    <a href="/fornecedor" class="btn btn-primary btn-ver">Ver fornecedores</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Estoque</h5>
                     <p class="card-text">Lista de produtos cadastrados no sistema.</p>
-                    <a href="?produtos" class="btn btn-primary btn-ver">Ver produtos</a>
+                    <a href="/produtos" class="btn btn-primary btn-ver">Ver produtos</a>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Pedidos</h5>
                     <p class="card-text">Lista de pedidos cadastrados no sistema.</p>
-                    <a href="?pedido" class="btn btn-primary btn-ver">Ver pedidos</a>
+                    <a href="/pedido" class="btn btn-primary btn-ver">Ver pedidos</a>
                 </div>
             </div>
         </div>

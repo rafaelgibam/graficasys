@@ -3,14 +3,20 @@
 require_once "Layouts/head.php";
 require_once "Layouts/menu.php";
 
-if(isset($_GET) && !empty($_GET)){
-    foreach ($_GET as $key => $pagina) {
-        if(file_exists("Pages/{$key}.php")){
-            require_once "Pages/{$key}.php";
-        }
+$res = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
+
+if(isset($res)) {
+    if ($res == "/") {
+        require_once "Pages/principal.php";
+
+    }else if (file_exists("Pages/{$res}.php")) {
+        require_once "Pages/{$res}.php";
+    }else if(file_exists("trataform/{$res}.php")){
+        require_once "trataform/{$res}.php";
+    }else{
+        require_once "Pages/404.php";
     }
-}else{
-    require_once "Pages/principal.php";
+
 }
 
-require_once "Layouts/footer.php"?>
+require_once "Layouts/footer.php";
