@@ -4,20 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/Pages/principal.php" line="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9d7661b-66e0-4d3c-8063-1233b854bb84" name="Default" comment="Implementado interface inicial com menus">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pages/404.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Pages/trataform/trataEndereco.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Models/Crud.php" afterPath="" />
+    <list default="true" id="c9d7661b-66e0-4d3c-8063-1233b854bb84" name="Default" comment="Implementado com sucesso CRUD de endereco">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Controllers/EnderecoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Layouts/footer.php" afterPath="$PROJECT_DIR$/Layouts/footer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Layouts/head.php" afterPath="$PROJECT_DIR$/Layouts/head.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Layouts/menu.php" afterPath="$PROJECT_DIR$/Layouts/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/Endereco.php" afterPath="$PROJECT_DIR$/Models/Endereco.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pages/endereco.php" afterPath="$PROJECT_DIR$/Pages/endereco.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pages/principal.php" afterPath="$PROJECT_DIR$/Pages/principal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/styles.css" afterPath="$PROJECT_DIR$/assets/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="graficasys.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,17 +71,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnderecoController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EnderecoController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controllers/EnderecoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="43" column="121" lean-forward="false" selection-start-line="43" selection-start-column="121" selection-end-line="43" selection-end-column="121" />
+            <state relative-caret-position="165">
+              <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="endereco.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="endereco.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pages/endereco.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
@@ -108,6 +98,16 @@
                 <marker date="1524351746516" expanded="true" signature="1701:1718" ph="..." />
                 <marker date="1524351746516" expanded="true" signature="1829:1858" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="head.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Layouts/head.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,13 +160,13 @@
         <option value="$PROJECT_DIR$/Layouts/menu.php" />
         <option value="$PROJECT_DIR$/Models/Endereco.php" />
         <option value="$PROJECT_DIR$/Pages/principal.php" />
-        <option value="$PROJECT_DIR$/Layouts/head.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Controllers/EnderecoController.php" />
         <option value="$PROJECT_DIR$/Pages/trataform/trataEndereco.php" />
         <option value="$PROJECT_DIR$/Pages/endereco.php" />
         <option value="$PROJECT_DIR$/Layouts/footer.php" />
         <option value="$PROJECT_DIR$/assets/css/styles.css" />
+        <option value="$PROJECT_DIR$/Layouts/head.php" />
       </list>
     </option>
   </component>
@@ -271,38 +271,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graficasys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graficasys" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graficasys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graficasys" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -426,7 +394,7 @@
       <workItem from="1523643274442" duration="111000" />
       <workItem from="1523729331545" duration="1930000" />
       <workItem from="1524327993771" duration="1434000" />
-      <workItem from="1524330178565" duration="11085000" />
+      <workItem from="1524330178565" duration="11260000" />
     </task>
     <task id="LOCAL-00001" summary="Criando interface com menus principais">
       <created>1523468522996</created>
@@ -442,11 +410,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523481311986</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Implementado com sucesso CRUD de endereco">
+      <created>1524352616611</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1524352616611</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74739000" />
+    <option name="totallyTimeSpent" value="74914000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -459,9 +434,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1936" height="1057" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10572917" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10572917" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -498,7 +472,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Criando interface com menus principais" />
     <MESSAGE value="Implementado interface inicial com menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementado interface inicial com menus" />
+    <MESSAGE value="Implementado com sucesso CRUD de endereco" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementado com sucesso CRUD de endereco" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -755,14 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Layouts/head.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="99" lean-forward="false" selection-start-line="12" selection-start-column="99" selection-end-line="12" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -775,14 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/EnderecoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="43" column="121" lean-forward="false" selection-start-line="43" selection-start-column="121" selection-end-line="43" selection-end-column="121" />
           <folding />
         </state>
       </provider>
@@ -839,6 +798,22 @@
             <marker date="1524351746516" expanded="true" signature="1701:1718" ph="..." />
             <marker date="1524351746516" expanded="true" signature="1829:1858" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Layouts/head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/EnderecoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="34" lean-forward="true" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

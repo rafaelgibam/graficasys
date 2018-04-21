@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link href="assets/icons/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <title>GraficaSys</title>
 
 </head>
