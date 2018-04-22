@@ -2,7 +2,7 @@
 
 namespace Models;
 
-abstract class Pessoa
+abstract class Pessoa extends Model
 {
     private $id;
     private $nome;
@@ -12,6 +12,7 @@ abstract class Pessoa
     private $numfixo;
     private $criadoem;
     private $endereco;
+    private $estado;
 
     /**
      * @return mixed
@@ -141,6 +142,20 @@ abstract class Pessoa
         $this->endereco = $endereco;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
 
+    /**
+     * @param mixed $estado
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+    }
 
 }

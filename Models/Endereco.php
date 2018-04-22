@@ -17,9 +17,10 @@ class Endereco extends Model
 
     protected $table = "endereco";
 
+
     public function insert()
     {
-        $sql = "INSERT INTO endereco (logradouro,numero,bairro,municipio,uf,pais,cep,complemento,referencia) VALUES (:LOGRADOURO,:NUMERO,:BAIRRO,:MUNICIPIO,:UF,:PAIS,:CEP,:COMPLEMENTO,:REFERENCIA)";
+        $sql = "INSERT INTO {$this->table} (logradouro,numero,bairro,municipio,uf,pais,cep,complemento,referencia) VALUES (:LOGRADOURO,:NUMERO,:BAIRRO,:MUNICIPIO,:UF,:PAIS,:CEP,:COMPLEMENTO,:REFERENCIA)";
         $stmt = DB::prepare($sql);
         $stmt->bindParam(":LOGRADOURO", $this->logradouro );
         $stmt->bindParam(":NUMERO", $this->numero);
@@ -34,11 +35,11 @@ class Endereco extends Model
         $stmt->closeCursor();
     }
 
-    public function update($paramid)
+    public function update()
     {
         $sql = "UPDATE {$this->table} SET logradouro = :LOGRADOURO, numero = :NUMERO, bairro = :BAIRRO, municipio = :MUNICIPIO, uf = :UF, pais = :PAIS, cep = :CEP, complemento = :COMPLEMENTO, referencia = :REFERENCIA WHERE id = :ID";
         $stmt = DB::prepare($sql);
-        $stmt->bindParam(":ID", $paramid);
+        $stmt->bindParam(":ID", $this->id);
         $stmt->bindParam(":LOGRADOURO", $this->logradouro );
         $stmt->bindParam(":NUMERO", $this->numero);
         $stmt->bindParam(":BAIRRO", $this->bairro);
@@ -52,14 +53,15 @@ class Endereco extends Model
         $stmt->closeCursor();
     }
 
-    public function delete($paramid)
+    public function delete()
     {
         $sql = "DELETE FROM {$this->table} WHERE id = :ID";
         $stmt = DB::prepare($sql);
-        $stmt->bindParam(":ID", $paramid);
+        $stmt->bindParam(":ID", $this->id);
         $stmt->execute();
         $stmt->closeCursor();
     }
+
 
     /**
      * @return mixed

@@ -2,6 +2,8 @@
 
 namespace Models;
 
+use stdClass;
+
 abstract class Model
 {
     protected $table;

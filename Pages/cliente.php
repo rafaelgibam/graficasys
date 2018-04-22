@@ -6,7 +6,6 @@ $ec = new \Controllers\EnderecoController();
             $ec->deletarEndereco($_GET['id']);
         }
     }
-
 ?>
 <div class="container-fluid">
     <div class="row mt-3">
@@ -14,15 +13,15 @@ $ec = new \Controllers\EnderecoController();
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <th scope="col">ID</th>
-                    <th scope="col">LOGRADOURO</th>
-                    <th scope="col">NÚMERO</th>
-                    <th scope="col">BAIRRO</th>
-                    <th scope="col">MUNICÍPIO</th>
-                    <th scope="col">UF</th>
-                    <th scope="col">PAIS</th>
-                    <th scope="col">COMPLEMENTO</th>
-                    <th scope="col">REFERÊNCIA</th>
-                    <th scope="col">CEP</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">RG</th>
+                    <th scope="col">NOME</th>
+                    <th scope="col">SEXO</th>
+                    <th scope="col">DATA NASCIMENTO</th>
+                    <th scope="col">NÚMERO CELULAR</th>
+                    <th scope="col">NUMERO FIXO</th>
+                    <th scope="col">CRIADO EM</th>
+                    <th scope="col">ESTADO</th>
                     <th scope="col">Ações</th>
                 </thead>
                 <tbody>
