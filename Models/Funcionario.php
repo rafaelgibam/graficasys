@@ -14,6 +14,7 @@ class Funcionario extends PessoaFisica
     private $salario;
     private $dtadmissao;
 
+
     /**
      * @return mixed
      */

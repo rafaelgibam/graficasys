@@ -1,11 +1,12 @@
 <?php
 
-$cc = new \Controllers\ClienteController();
+$fc = new \Controllers\FuncionarioController();
 $ec = new \Controllers\EnderecoController();
 
     if(isset($_GET) && isset($_GET['a']) && $_GET['a'] == 'd'){
         if(isset($_GET['id'])){
-            $cc->deletarCliente($_GET['id']);
+            $fc->getG()->delete($_GET['id']);
+
         }
     }
 
@@ -26,20 +27,24 @@ $ec = new \Controllers\EnderecoController();
                     <th scope="col">CRIADO EM</th>
                     <th scope="col">ESTADO</th>
                     <th scope="col">ENDEREÇO</th>
+                    <th scope="col">SALÁRIO</th>
+                    <th scope="col">DATA ADMISSÃO</th>
                     <th scope="col">Ações</th>
                 </thead>
                 <tbody>
-                <?php foreach ($cc->findAll() as $key => $value) : ?>
+                <?php foreach ($fc->getG()->findAll() as $key => $value) : ?>
                     <tr>
                         <td><?= $value->id ?></td>
                         <td><?= $value->cpf ?></td>
                         <td><?= $value->rg ?></td>
                         <td><?= $value->nome ?></td>
                         <td><?= $value->sexo ?></td>
-                        <td><?php
+                        <td>
+                            <?php
                             $data = new \DateTime($value->dtnascimento);
                             echo $data->format('d-m-Y');
-                            ?></td>
+                            ?>
+                        </td>
                         <td><?= $value->numcelular ?></td>
                         <td><?= $value->numfixo ?></td>
                         <td><?php
@@ -50,9 +55,16 @@ $ec = new \Controllers\EnderecoController();
                         <td>
                             <?= $r = ($value->estado) ? "Ativo" : "Desativado"; ?>
                         </td>
-                        <td><a title="Clique para editar" href="endereco?a=e&id=<?= $value->endereco_idendereco ?>"><?= $ec->find($value->endereco_idendereco)->logradouro ?></a></td>
-                        <td><a href="cliente?a=e&id=<?= $value->id ?>"><i style="font-size: 1.6em;" class="ion-edit mr-2"></i></a>
-                        <a href="cliente?a=d&id=<?= $value->id ?>"><i style="font-size: 1.8em; color: red;" class="ion-trash-b"></i></a></td>
+                        <td><a title="Clique para editar" href="gerente?a=e&id=<?= $value->endereco_idendereco ?>"><?= $ec->find($value->endereco_idendereco)->logradouro ?></a></td>
+                        <td>R$ <?= $value->salario ?></td>
+                        <td>
+                            <?php
+                            $data = new \DateTime($value->dtadmissao);
+                            echo $data->format('d-m-Y');
+                            ?>
+                        </td>
+                        <td><a href="gerente?a=e&id=<?= $value->id ?>"><i style="font-size: 1.6em;" class="ion-edit mr-2"></i></a>
+                        <a href="gerente?a=d&id=<?= $value->id ?>"><i style="font-size: 1.8em; color: red;" class="ion-trash-b"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -66,7 +78,7 @@ $ec = new \Controllers\EnderecoController();
     -------------------------------------------------------------------------------------------------------------------------------->
     <?php
         if(isset($_GET['a']) && $_GET['a'] == 'e'):
-            $value = $cc->find($_GET['id']);
+            $value = $fc->getG()->find($_GET['id']);
     ?>
         <div class="row mt-5">
             <div class="col-md-12">
@@ -131,9 +143,20 @@ $ec = new \Controllers\EnderecoController();
                             </select>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="salario">Salário</label>
+                            <input type="number" name="salario" id="salario" class="form-control" value="<?= $value->salario ?>">
+                        </div>
 
-                    <button type="submit" name="editarCliente" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Atualizar</button>
-                    <a href="/cliente" class="btn btn-danger"><span class="ion-android-cancel mr-2"></span>Cancelar</a>
+                        <div class="form-group col-md-6">
+                            <label for="dtadmissao">Data Admissão</label>
+                            <input type="date" name="dtadmissao" id="dtadmissao" class="form-control" value="<?= $value->dtadmissao ?>">
+                        </div>
+                    </div>
+
+                    <button type="submit" name="editarGerente" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Atualizar</button>
+                    <a href="/gerente" class="btn btn-danger"><span class="ion-android-cancel mr-2"></span>Cancelar</a>
                 </form>
             </div>
         </div>
@@ -206,7 +229,19 @@ $ec = new \Controllers\EnderecoController();
                         </div>
                     </div>
 
-                    <button type="submit" name="cadastrarCliente" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Cadastrar</button>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="salario">Salário</label>
+                            <input type="number" name="salario" id="salario" class="form-control" value="<?= $value->salario ?>">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="dtadmissao">Data Admissão</label>
+                            <input type="date" name="dtadmissao" id="dtadmissao" class="form-control" value="<?= $value->dtadmissao ?>">
+                        </div>
+                    </div>
+
+                    <button type="submit" name="cadastrarGerente" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Cadastrar</button>
                 </form>
             </div>
         </div>
