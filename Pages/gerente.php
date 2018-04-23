@@ -5,8 +5,8 @@ $ec = new \Controllers\EnderecoController();
 
     if(isset($_GET) && isset($_GET['a']) && $_GET['a'] == 'd'){
         if(isset($_GET['id'])){
-            $fc->getG()->delete($_GET['id']);
-
+            $fc->deletarGerente($_GET['id']);
+            header("Location: gerente");
         }
     }
 
@@ -232,12 +232,12 @@ $ec = new \Controllers\EnderecoController();
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="salario">Salário</label>
-                            <input type="number" name="salario" id="salario" class="form-control" value="<?= $value->salario ?>">
+                            <input type="number" name="salario" id="salario" class="form-control">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="dtadmissao">Data Admissão</label>
-                            <input type="date" name="dtadmissao" id="dtadmissao" class="form-control" value="<?= $value->dtadmissao ?>">
+                            <input type="date" name="dtadmissao" id="dtadmissao" class="form-control">
                         </div>
                     </div>
 

@@ -2,7 +2,7 @@
     <div class="row text-center">
         <div class="col-md-4" align="center">
             <div class="card card-person" style="width: 18rem;">
-                <i class="ion-android-person"></i>
+                <i class="ion-android-happy"></i>
                 <div class="card-body">
                     <h5 class="card-title">Gerente</h5>
                     <p class="card-text">Lista de gerentes cadastrados no sistema.</p>
@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-4" align="center">
             <div class="card card-person" style="width: 18rem;">
-                <i class="ion-ios-location"></i>
+                <i class="ion-help-buoy"></i>
                 <div class="card-body">
                     <h5 class="card-title">Atendente</h5>
                     <p class="card-text">Lista de atendentes cadastrados no sistema.</p>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-4" align="center">
             <div class="card card-person" style="width: 18rem;">
-                <i class="ion-person-stalker"></i>
+                <i class="ion-paintbrush"></i>
                 <div class="card-body">
                     <h5 class="card-title">Arte Finalista</h5>
                     <p class="card-text">Lista de arte finalistas cadastrados no sistema.</p>

@@ -3,11 +3,12 @@
 $fc = new \Controllers\FuncionarioController();
 $ec = new \Controllers\EnderecoController();
 
-    if(isset($_GET) && isset($_GET['a']) && $_GET['a'] == 'd'){
-        if(isset($_GET['id'])){
-            $cc->deletarCliente($_GET['id']);
-        }
+if(isset($_GET) && isset($_GET['a']) && $_GET['a'] == 'd'){
+    if(isset($_GET['id'])){
+        $fc->deletarArteFinalista($_GET['id']);
+        header("Location: artefinalista");
     }
+}
 
 ?>
 <div class="container-fluid">
@@ -15,23 +16,23 @@ $ec = new \Controllers\EnderecoController();
         <div class="col-md-12">
             <table class="table table-hover">
                 <thead class="thead-dark">
-                    <th scope="col">ID</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">RG</th>
-                    <th scope="col">NOME</th>
-                    <th scope="col">SEXO</th>
-                    <th scope="col">DATA NASCIMENTO</th>
-                    <th scope="col">NÚMERO CELULAR</th>
-                    <th scope="col">NUMERO FIXO</th>
-                    <th scope="col">CRIADO EM</th>
-                    <th scope="col">ESTADO</th>
-                    <th scope="col">ENDEREÇO</th>
-                    <th scope="col">SALÁRIO</th>
-                    <th scope="col">DATA ADMISSÃO</th>
-                    <th scope="col">Ações</th>
+                <th scope="col">ID</th>
+                <th scope="col">CPF</th>
+                <th scope="col">RG</th>
+                <th scope="col">NOME</th>
+                <th scope="col">SEXO</th>
+                <th scope="col">DATA NASCIMENTO</th>
+                <th scope="col">NÚMERO CELULAR</th>
+                <th scope="col">NUMERO FIXO</th>
+                <th scope="col">CRIADO EM</th>
+                <th scope="col">ESTADO</th>
+                <th scope="col">ENDEREÇO</th>
+                <th scope="col">SALÁRIO</th>
+                <th scope="col">DATA ADMISSÃO</th>
+                <th scope="col">Ações</th>
                 </thead>
                 <tbody>
-                <?php foreach ($fc->findAll() as $key => $value) : ?>
+                <?php foreach ($fc->getArt()->findAll() as $key => $value) : ?>
                     <tr>
                         <td><?= $value->id ?></td>
                         <td><?= $value->cpf ?></td>
@@ -54,16 +55,16 @@ $ec = new \Controllers\EnderecoController();
                         <td>
                             <?= $r = ($value->estado) ? "Ativo" : "Desativado"; ?>
                         </td>
-                        <td><?= $value->salario ?></td>
+                        <td><a title="Clique para editar" href="endereco?a=e&id=<?= $value->endereco_idendereco ?>"><?= $ec->find($value->endereco_idendereco)->logradouro ?></a></td>
+                        <td>R$ <?= $value->salario ?></td>
                         <td>
                             <?php
                             $data = new \DateTime($value->dtadmissao);
                             echo $data->format('d-m-Y');
                             ?>
                         </td>
-                        <td><a title="Clique para editar" href="endereco?a=e&id=<?= $value->endereco_idendereco ?>"><?= $ec->find($value->endereco_idendereco)->logradouro ?></a></td>
-                        <td><a href="funcionario?a=e&id=<?= $value->id ?>"><i style="font-size: 1.6em;" class="ion-edit mr-2"></i></a>
-                        <a href="funcionario?a=d&id=<?= $value->id ?>"><i style="font-size: 1.8em; color: red;" class="ion-trash-b"></i></a></td>
+                        <td><a href="artefinalista?a=e&id=<?= $value->id ?>"><i style="font-size: 1.6em;" class="ion-edit mr-2"></i></a>
+                            <a href="artefinalista?a=d&id=<?= $value->id ?>"><i style="font-size: 1.8em; color: red;" class="ion-trash-b"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -76,9 +77,9 @@ $ec = new \Controllers\EnderecoController();
     --- Formulário de edição
     -------------------------------------------------------------------------------------------------------------------------------->
     <?php
-        if(isset($_GET['a']) && $_GET['a'] == 'e'):
-            $value = $cc->find($_GET['id']);
-    ?>
+    if(isset($_GET['a']) && $_GET['a'] == 'e'):
+        $value = $fc->getArt()->find($_GET['id']);
+        ?>
         <div class="row mt-5">
             <div class="col-md-12">
                 <form action="Pages/trataform/trataform.php" method="post">
@@ -142,17 +143,28 @@ $ec = new \Controllers\EnderecoController();
                             </select>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="salario">Salário</label>
+                            <input type="number" name="salario" id="salario" class="form-control" value="<?= $value->salario ?>">
+                        </div>
 
-                    <button type="submit" name="editarCliente" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Atualizar</button>
-                    <a href="/funcionario" class="btn btn-danger"><span class="ion-android-cancel mr-2"></span>Cancelar</a>
+                        <div class="form-group col-md-6">
+                            <label for="dtadmissao">Data Admissão</label>
+                            <input type="date" name="dtadmissao" id="dtadmissao" class="form-control" value="<?= $value->dtadmissao ?>">
+                        </div>
+                    </div>
+
+                    <button type="submit" name="editarArteFinalista" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Atualizar</button>
+                    <a href="/artefinalista" class="btn btn-danger"><span class="ion-android-cancel mr-2"></span>Cancelar</a>
                 </form>
             </div>
         </div>
     <?php else: ?>
 
-    <!------------------------------------------------------------------------------------------------------------------------------
-    --- Formulário de cadastro
-    -------------------------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------------------------
+        --- Formulário de cadastro
+        -------------------------------------------------------------------------------------------------------------------------------->
         <div class="row mt-5">
             <div class="col-md-12">
                 <form action="Pages/trataform/trataform.php" method="post">
@@ -217,7 +229,19 @@ $ec = new \Controllers\EnderecoController();
                         </div>
                     </div>
 
-                    <button type="submit" name="cadastrarCliente" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Cadastrar</button>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="salario">Salário</label>
+                            <input type="number" name="salario" id="salario" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="dtadmissao">Data Admissão</label>
+                            <input type="date" name="dtadmissao" id="dtadmissao" class="form-control">
+                        </div>
+                    </div>
+
+                    <button type="submit" name="cadastrarArteFinalista" class="btn btn-primary"><span class="ion-person-add mr-2"></span>Cadastrar</button>
                 </form>
             </div>
         </div>

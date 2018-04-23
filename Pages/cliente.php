@@ -6,6 +6,7 @@ $ec = new \Controllers\EnderecoController();
     if(isset($_GET) && isset($_GET['a']) && $_GET['a'] == 'd'){
         if(isset($_GET['id'])){
             $cc->deletarCliente($_GET['id']);
+            header("Location: cliente");
         }
     }
 

@@ -39,6 +39,7 @@ class FuncionarioController extends Funcionario
 
     public function editarGerente($id, $cpf, $rg, $nome, $sexo, $dtnasc, $numc, $numfi, $estado, $endereco, $salario, $dtadmissao)
     {
+        $this->g->setId($id);
         $this->g->setCpf($cpf);
         $this->g->setRg($rg);
         $this->g->setNome($nome);

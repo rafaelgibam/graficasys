@@ -52,3 +52,36 @@ if(isset($_POST['editarGerente']) && !empty($_POST)){
     $fc->editarGerente($_POST['id'],$_POST['cpf'],$_POST['rg'],$_POST['nome'],$_POST['sexo'],$_POST['dtnasc'],$_POST['numcelular'],$_POST['numfixo'],$_POST['estado'],$_POST['endereco'],$_POST['salario'], $_POST['dtadmissao']);
     header("location: ../../gerente");
 }
+
+
+/**************************************************************************************************************************************************************************************************
+ *  Cadastro e edição do Atendente
+ *************************************************************************************************************************************************************************************************/
+
+if(isset($_POST['cadastrarAtendente']) && !empty($_POST)){
+    $fc->inserirAtendente($_POST['cpf'],$_POST['rg'],$_POST['nome'],$_POST['sexo'],$_POST['dtnasc'],$_POST['numcelular'],$_POST['numfixo'],$_POST['estado'],$_POST['endereco'],$_POST['salario'], $_POST['dtadmissao']);
+    header("location: ../../atendente");
+}
+
+
+
+if(isset($_POST['editarAtendente']) && !empty($_POST)){
+    $fc->editarAtendente($_POST['id'],$_POST['cpf'],$_POST['rg'],$_POST['nome'],$_POST['sexo'],$_POST['dtnasc'],$_POST['numcelular'],$_POST['numfixo'],$_POST['estado'],$_POST['endereco'],$_POST['salario'], $_POST['dtadmissao']);
+    header("location: ../../atendente");
+}
+
+/**************************************************************************************************************************************************************************************************
+ *  Cadastro e edição do Arte Finalista
+ *************************************************************************************************************************************************************************************************/
+
+if(isset($_POST['cadastrarArteFinalista']) && !empty($_POST)){
+    $fc->inserirArteFinalista($_POST['cpf'],$_POST['rg'],$_POST['nome'],$_POST['sexo'],$_POST['dtnasc'],$_POST['numcelular'],$_POST['numfixo'],$_POST['estado'],$_POST['endereco'],$_POST['salario'], $_POST['dtadmissao']);
+    header("location: ../../artefinalista");
+}
+
+
+
+if(isset($_POST['editarArteFinalista']) && !empty($_POST)){
+    $fc->editarArteFinalista($_POST['id'],$_POST['cpf'],$_POST['rg'],$_POST['nome'],$_POST['sexo'],$_POST['dtnasc'],$_POST['numcelular'],$_POST['numfixo'],$_POST['estado'],$_POST['endereco'],$_POST['salario'], $_POST['dtadmissao']);
+    header("location: ../../artefinalista");
+}
