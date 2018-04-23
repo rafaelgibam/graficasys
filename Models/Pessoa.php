@@ -129,7 +129,7 @@ abstract class Pessoa extends Model
     /**
      * @return mixed
      */
-    public function getEndereco() : Endereco
+    public function getEndereco()
     {
         return $this->endereco;
     }
@@ -137,7 +137,7 @@ abstract class Pessoa extends Model
     /**
      * @param mixed $endereco
      */
-    public function setEndereco(Endereco $endereco)
+    public function setEndereco($endereco)
     {
         $this->endereco = $endereco;
     }

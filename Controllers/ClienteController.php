@@ -13,24 +13,41 @@ class ClienteController extends Cliente
     {
         $this->c = new Cliente();
     }
-
-    public function inserirEndereco($l, $n, $b, $m, $u, $p, $com, $r, $c)
+    public function inserirCliente($cpf, $rg, $nome, $sexo, $dtnasc, $numc, $numfi, $estado, $endereco)
     {
+        $this->c->setCpf($cpf);
+        $this->c->setRg($rg);
+        $this->c->setNome($nome);
+        $this->c->setSexo($sexo);
+        $this->c->setDtnascimento($dtnasc);
+        $this->c->setNumcelular($numc);
+        $this->c->setNumfixo($numfi);
+        $this->c->setEstado($estado);
+        $this->c->setEndereco($endereco);
 
         $this->c->insert();
     }
 
-    public function editarEndereco($id, $l, $n, $b, $m, $u, $p, $com, $r, $c)
+    public function editarCliente($id, $cpf, $rg, $nome, $sexo, $dtnasc, $numc, $numfi, $estado, $endereco)
     {
 
-        $this->c->setCep($c);
+        $this->c->setId($id);
+        $this->c->setCpf($cpf);
+        $this->c->setRg($rg);
+        $this->c->setNome($nome);
+        $this->c->setSexo($sexo);
+        $this->c->setDtnascimento($dtnasc);
+        $this->c->setNumcelular($numc);
+        $this->c->setNumfixo($numfi);
+        $this->c->setEstado($estado);
+        $this->c->setEndereco($endereco);
 
-        $this->e->update();
+        $this->c->update();
     }
 
-    public function deletarEndereco($id)
+    public function deletarCliente($id)
     {
-        $this->e->setId($id);
-        $this->e->delete();
+        $this->c->setId($id);
+        $this->c->delete();
     }
 }

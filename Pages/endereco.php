@@ -57,7 +57,7 @@ $ec = new \Controllers\EnderecoController();
     ?>
         <div class="row mt-5">
             <div class="col-md-12">
-                <form action="Pages/trataform/trataEndereco.php" method="post">
+                <form action="Pages/trataform/trataform.php" method="post">
                     <input type="number" name="id" value="<?= $_GET['id'] ?>" hidden>
                     <div class="form-row">
                         <div class="form-group col-md-10">
@@ -114,7 +114,7 @@ $ec = new \Controllers\EnderecoController();
     -------------------------------------------------------------------------------------------------------------------------------->
     <div class="row mt-5">
         <div class="col-md-12">
-            <form action="Pages/trataform/trataEndereco.php" method="post">
+            <form action="Pages/trataform/trataform.php" method="post">
                 <div class="form-row">
                     <div class="form-group col-md-10">
                         <label for="logradouro">Logradouro</label>

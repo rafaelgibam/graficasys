@@ -4,10 +4,13 @@ namespace Models;
 
 class Cliente extends PessoaFisica
 {
+
+    protected $table = "cliente";
+
     public function insert()
     {
-        $sql = "INSERT INTO {$this->table} (cpf, rg, nome, sexo, dtnascimento, numcelular, numfixo, criadoem, estado, endereco_idendereco) VALUES (:CPF, :RG, :NOME, :SEXO, :DATANASCIMENTO, 
-                :NUMEROCELULAR, :NUMEROFIXO, :CRIADOEM, :ESTADO, :ENDERECO)";
+        $sql = "INSERT INTO {$this->table} (cpf, rg, nome, sexo, dtnascimento, numcelular, numfixo, estado, endereco_idendereco) VALUES (:CPF, :RG, :NOME, :SEXO, :DATANASCIMENTO, 
+                :NUMEROCELULAR, :NUMEROFIXO, :ESTADO, :ENDERECO)";
         $stmt = DB::prepare($sql);
         $stmt->bindParam(":CPF", $this->getCpf() );
         $stmt->bindParam(":RG", $this->getRg());
@@ -16,7 +19,6 @@ class Cliente extends PessoaFisica
         $stmt->bindParam(":DATANASCIMENTO",$this->getDtnascimento());
         $stmt->bindParam(":NUMEROCELULAR",$this->getNumcelular());
         $stmt->bindParam(":NUMEROFIXO",$this->getNumfixo());
-        $stmt->bindParam(":CRIADOEM", $this->getCriadoem());
         $stmt->bindParam(":ESTADO", $this->getEstado());
         $stmt->bindParam(":ENDERECO", $this->getEndereco());
         $stmt->execute();
@@ -25,7 +27,7 @@ class Cliente extends PessoaFisica
 
     public function update()
     {
-        $sql = "UPDATE {$this->table} SET cpf = :CPF, rg = :RG, nome = :NOME, sexo = :SEXO, dtnascimento = :DATANASCIMENTO, numcelular = :NUMEROCELULAR, numfixo = :NUMEROFIXO, criadoem = :CRIADOEM, estado = :ESTADO WHERE id = :ID";
+        $sql = "UPDATE {$this->table} SET cpf = :CPF, rg = :RG, nome = :NOME, sexo = :SEXO, dtnascimento = :DATANASCIMENTO, numcelular = :NUMEROCELULAR, numfixo = :NUMEROFIXO, estado = :ESTADO, endereco_idendereco = :ENDERECO WHERE id = :ID";
         $stmt = DB::prepare($sql);
         $stmt->bindParam(":ID", $this->getId());
         $stmt->bindParam(":CPF", $this->getCpf() );
@@ -35,7 +37,6 @@ class Cliente extends PessoaFisica
         $stmt->bindParam(":DATANASCIMENTO",$this->getDtnascimento());
         $stmt->bindParam(":NUMEROCELULAR",$this->getNumcelular());
         $stmt->bindParam(":NUMEROFIXO",$this->getNumfixo());
-        $stmt->bindParam(":CRIADOEM", $this->getCriadoem());
         $stmt->bindParam(":ESTADO", $this->getEstado());
         $stmt->bindParam(":ENDERECO", $this->getEndereco());
         $stmt->execute();
