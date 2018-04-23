@@ -2,31 +2,31 @@
     <div class="row text-center">
         <div class="col-md-4" align="center">
             <div class="card card-person" style="width: 18rem;">
-                <i class="ion-android-happy"></i>
+                <i class="ion-tshirt"></i>
                 <div class="card-body">
-                    <h5 class="card-title">Gerente</h5>
-                    <p class="card-text">Lista de gerentes cadastrados no sistema.</p>
-                    <a href="/gerente" class="btn btn-primary btn-ver">Ver Gerentes</a>
+                    <h5 class="card-title">Produtos</h5>
+                    <p class="card-text">Lista de produtos cadastrados no estoque.</p>
+                    <a href="/produto" class="btn btn-primary btn-ver">Ver Produtos</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4" align="center">
             <div class="card card-person" style="width: 18rem;">
-                <i class="ion-help-buoy"></i>
+                <i class="ion-ios-redo"></i>
                 <div class="card-body">
-                    <h5 class="card-title">Atendente</h5>
-                    <p class="card-text">Lista de atendentes cadastrados no sistema.</p>
-                    <a href="/atendente" class="btn btn-primary btn-ver">Ver atendentes</a>
+                    <h5 class="card-title">Entrada de Produto</h5>
+                    <p class="card-text">Lista de entrada de produtos do estoque.</p>
+                    <a href="/entradaproduto" class="btn btn-primary btn-ver">Ver entrada de produtos</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4" align="center">
             <div class="card card-person" style="width: 18rem;">
-                <i class="ion-paintbrush"></i>
+                <i class="ion-ios-undo"></i>
                 <div class="card-body">
-                    <h5 class="card-title">Arte Finalista</h5>
-                    <p class="card-text">Lista de arte finalistas cadastrados no sistema.</p>
-                    <a href="/artefinalista" class="btn btn-primary btn-ver">Ver arte finalistas</a>
+                    <h5 class="card-title">Saída de Produto</h5>
+                    <p class="card-text">Lista de saída de produtos do estoque.</p>
+                    <a href="/saidaproduto" class="btn btn-primary btn-ver">Ver saída de produtos</a>
                 </div>
             </div>
         </div>
